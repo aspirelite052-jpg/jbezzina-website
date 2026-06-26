@@ -9,7 +9,6 @@ import {
   Users, 
   MessageSquare, 
   LogOut,
-  ChevronRight
 } from 'lucide-react'
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -31,7 +30,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     { href: '/admin/products', label: 'Products', icon: Package },
     { href: '/admin/orders', label: 'Orders', icon: ShoppingCart },
     { href: '/admin/customers', label: 'Customers', icon: Users },
-    { href: '/admin/quotes', label: 'Quote Requests', icon: MessageSquare },
+    { href: '/admin/quotes', label: 'Quotes', icon: MessageSquare },
   ]
 
   return (
