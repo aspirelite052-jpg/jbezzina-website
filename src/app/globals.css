@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   CSS CUSTOM PROPERTIES — Brand tokens
+   ============================================================ */
+:root {
+  --navy-primary:  #1e3a5f;
+  --navy-dark:     #0f1c30;
+  --navy-light:    #2d5b99;
+  --gold-primary:  #d4a017;
+  --gold-light:    #fbbf24;
+  --gold-dark:     #b8880f;
+  --steel-mid:     #64748b;
+  --white:         #ffffff;
+  --off-white:     #f8fafc;
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-navy-900 font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+
+  /* Focus rings — accessible and on-brand */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-gold-500 ring-offset-2;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-steel-100;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-navy-600 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-navy-700;
+  }
+}
+
+/* ============================================================
+   COMPONENT CLASSES
+   ============================================================ */
+@layer components {
+
+  /* --- Buttons --- */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-navy-700 text-white 
+           font-semibold rounded-lg transition-all duration-200 
+           hover:bg-navy-800 hover:shadow-industrial 
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold-500 text-navy-900 
+           font-semibold rounded-lg transition-all duration-200 
+           hover:bg-gold-600 hover:shadow-gold-glow 
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-navy-700 
+           text-navy-700 font-semibold rounded-lg transition-all duration-200 
+           hover:bg-navy-700 hover:text-white 
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-navy-700 
+           font-medium rounded-lg transition-all duration-200 
+           hover:bg-navy-50 active:scale-95;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-600 text-white 
+           font-semibold rounded-lg transition-all duration-200 
+           hover:bg-red-700 active:scale-95 disabled:opacity-50;
+  }
+
+  /* --- Cards --- */
+  .card {
+    @apply bg-white rounded-xl border border-steel-200 shadow-card overflow-hidden;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-300 hover:shadow-industrial hover:-translate-y-1;
+  }
+
+  /* --- Form inputs --- */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg border border-steel-300 bg-white text-navy-900
+           placeholder:text-steel-400 transition-all duration-200
+           focus:border-navy-500 focus:ring-2 focus:ring-navy-500/20 focus:outline-none;
+  }
+
+  .input-error {
+    @apply border-red-400 focus:border-red-500 focus:ring-red-500/20;
+  }
+
+  .label {
+    @apply block text-sm font-semibold text-navy-800 mb-1.5;
+  }
+
+  /* --- Badges --- */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  .badge-gold {
+    @apply badge bg-gold-100 text-gold-800;
+  }
+
+  .badge-navy {
+    @apply badge bg-navy-100 text-navy-800;
+  }
+
+  .badge-green {
+    @apply badge bg-green-100 text-green-800;
+  }
+
+  .badge-red {
+    @apply badge bg-red-100 text-red-800;
+  }
+
+  .badge-gray {
+    @apply badge bg-steel-100 text-steel-700;
+  }
+
+  /* --- Section layout --- */
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-display font-bold text-navy-900;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-steel-600 mt-3;
+  }
+
+  /* --- Page container --- */
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* --- Gold divider accent --- */
+  .gold-accent {
+    @apply w-16 h-1 bg-gold-500 rounded-full;
+  }
+
+  /* --- Admin sidebar --- */
+  .admin-nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium
+           text-steel-300 transition-all duration-150
+           hover:bg-navy-700 hover:text-white;
+  }
+
+  .admin-nav-item.active {
+    @apply bg-gold-500 text-navy-900 font-semibold;
+  }
+
+  /* --- Product image container --- */
+  .product-image-container {
+    @apply relative overflow-hidden bg-steel-50 rounded-lg;
+    aspect-ratio: 4 / 3;
+  }
+
+  /* --- Price display --- */
+  .price-current {
+    @apply text-2xl font-bold text-navy-900;
+  }
+
+  .price-original {
+    @apply text-base text-steel-400 line-through;
+  }
+
+  .price-save {
+    @apply text-sm font-semibold text-green-600;
+  }
+
+  /* --- Loading skeleton --- */
+  .skeleton {
+    @apply animate-pulse bg-steel-200 rounded;
+  }
+
+  /* --- Order status colours --- */
+  .status-pending    { @apply badge bg-yellow-100 text-yellow-800; }
+  .status-processing { @apply badge bg-blue-100 text-blue-800; }
+  .status-shipped    { @apply badge bg-purple-100 text-purple-800; }
+  .status-delivered  { @apply badge bg-green-100 text-green-800; }
+  .status-cancelled  { @apply badge bg-red-100 text-red-800; }
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-industrial-grid {
+    background-image: 
+      linear-gradient(rgba(30, 58, 95, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30, 58, 95, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Gradient text — for hero headings */
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-navy {
+    @apply bg-gradient-to-r from-navy-600 to-navy-800 bg-clip-text text-transparent;
+  }
+
+  /* Hover underline animation */
+  .hover-underline {
+    @apply relative;
+  }
+  .hover-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gold-500 transition-all duration-300;
+  }
+  .hover-underline:hover::after {
+    @apply w-full;
+  }
+}
+
+/* ============================================================
+   PRINT STYLES (for invoice PDF generation)
+   ============================================================ */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    @apply text-black bg-white;
+  }
+}

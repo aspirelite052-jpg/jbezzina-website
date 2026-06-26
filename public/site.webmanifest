@@ -1,0 +1,10 @@
+{
+  "name": "Joseph Bezzina & Co Ltd",
+  "short_name": "J. Bezzina",
+  "description": "Industrial equipment and engineering supplies in Malta",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8FAFC",
+  "theme_color": "#0F172A",
+  "lang": "en"
+}
